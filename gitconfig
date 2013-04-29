@@ -1,0 +1,53 @@
+[http]
+  proxy = http://localhost:3128
+	
+[user]
+	name = xxx
+	email = xxx@xxx.xxx
+	
+[color]
+	status = auto
+	branch = auto
+	diff = auto
+	ui = auto
+	
+[alias]
+	co = checkout
+	br = branch
+	ci = commit
+	st = status
+	cp = cherry-pick
+	last = log -1
+	dn = diff --name-only
+	dc = difftool --cached
+	h = log --pretty=format:\"%d %Cred%h%Creset %ad %Cgreen%an%Creset %s \" --graph --date=short
+	hh = log --pretty=format:\"%d %Cred%h%Creset %ad %Cgreen%an%Creset %s \" --graph --date=short -5
+	
+[core]
+	filemode = false
+	editor = git-editor-wrapper.sh
+	
+[diff]
+  tool = winmerge
+  
+[difftool "winmerge"]
+  cmd = git-difftool-winmerge-wrapper.sh \"$LOCAL\" \"$REMOTE\"
+  
+[difftool "pe4merge"]
+  cmd = git-difftool-p4merge-wrapper.sh \"$LOCAL\" \"$REMOTE\"
+  keepTemporaries = false
+	trustExitCode = false
+	keepBackup = false
+	
+[difftool]
+  prompt = false
+  
+[merge]
+	keepBackup = false
+	prompt = false
+	tool = pe4merge
+	
+[mergetool "pe4merge"]
+  cmd = git-mergetool-p4merge-wrapper.sh \"$BASE\" \"$REMOTE\" \"$LOCAL\" \"$MERGED\"
+	keepTemporaries = false
+	trustExitCode = false
