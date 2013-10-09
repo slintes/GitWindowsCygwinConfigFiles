@@ -15,7 +15,8 @@ prompt_all() {
 PS1='\[\e]0;\w\a\]\n\[\e[32m\]\u@\h \[\e[33m\]\w\[\e[0m\] \[\e[34;1m\]$(prompt_all)\[\e[0m\]\n\$ '
 
 source /etc/bash_completion.d/git
-export LANG=en
+export LANG=de_DE
+export LC_ALL=de_DE
 export TERM=cygwin
 export DISPLAY=:0.0
 
